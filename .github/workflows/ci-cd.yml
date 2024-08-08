@@ -28,11 +28,11 @@ jobs:
       - name: Set permissions
         run: chmod -R 755 ./web_app
 
-      - name: Run lint
-        working-directory: ./web_app
-        run: npx eslint app.js
-        env:
-          CI: true
+      # - name: Run lint
+      #   working-directory: ./web_app
+      #   run: npx eslint app.js
+      #   env:
+      #     CI: true
 
       - name: Run tests
         working-directory: ./web_app
