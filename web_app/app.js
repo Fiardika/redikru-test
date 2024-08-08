@@ -1,10 +1,10 @@
-const express = require('express');
-const prometheusMiddleware = require('express-prometheus-middleware');
+import express from 'express';
+import prometheusMiddleware from 'express-prometheus-middleware';
 
 const app = express();
 const port = process.env.PORT || 3003; // Use the PORT environment variable provided by Heroku
 
-// Use the prometheus middleware
+// Use the Prometheus middleware
 app.use(prometheusMiddleware({
   metricsPath: '/metrics',
   collectDefaultMetrics: true,
