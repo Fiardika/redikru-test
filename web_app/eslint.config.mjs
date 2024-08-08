@@ -1,9 +1,19 @@
-import globals from "globals";
-import pluginJs from "@eslint/js";
-
-
 export default [
-  {files: ["**/*.js"], languageOptions: {sourceType: "commonjs"}},
-  {languageOptions: { globals: globals.browser }},
-  pluginJs.configs.recommended,
+  {
+    ignores: ["node_modules/**"],
+  },
+  {
+    files: ["**/*.js"],
+    languageOptions: {
+      ecmaVersion: 12,
+      globals: {
+        require: "readonly",
+        describe: "readonly",
+        it: "readonly",
+      },
+    },
+    rules: {
+      "no-undef": "off",
+    },
+  },
 ];
