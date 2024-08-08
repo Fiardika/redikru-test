@@ -22,17 +22,21 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
+        working-directory: ./web_app
         run: npm install
 
       - name: Run lint
+        working-directory: ./web_app
         run: npm run lint
         env:
           CI: true
 
       - name: Run tests
+        working-directory: ./web_app
         run: npm test
 
       - name: Build
+        working-directory: ./web_app
         run: npm run build
 
       - name: Deploy to Heroku
