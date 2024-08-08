@@ -23,21 +23,25 @@ jobs:
 
       - name: Install dependencies
         working-directory: ./web_app
-        run: sudo npm install
+        run: npm install
+
+      - name: Fix permissions
+        working-directory: ./web_app
+        run: chmod +x ./node_modules/.bin/eslint
 
       - name: Run lint
         working-directory: ./web_app
-        run: sudo npm run lint
+        run: npm run lint
         env:
           CI: true
 
       - name: Run tests
         working-directory: ./web_app
-        run: sudo npm test
+        run: npm test
 
       - name: Build
         working-directory: ./web_app
-        run: sudo npm run build
+        run: npm run build
 
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.13.15
