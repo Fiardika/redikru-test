@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha test/*.test.js",
+    "start": "node app.js",
     "lint": "eslint .",
     "build": "echo 'No build step required'"
   },
