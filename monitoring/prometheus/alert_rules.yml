@@ -1,0 +1,20 @@
+groups:
+- name: example-alerts
+  rules:
+  - alert: HighCPUUsage
+    expr: sum(rate(container_cpu_usage_seconds_total{name=~".+"}[5m])) by (name) * 100 > 80
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "High CPU usage detected for container {{ $labels.name }}"
+      description: "CPU usage is above 80% for more than 5 minutes. Current value: {{ $value }}"
+
+  - alert: HighMemoryUsage
+    expr: sum(container_memory_rss{name=~".+"}) by (name) > (512 * 1024 * 1024)  # 512MB as an example threshold
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "High Memory usage detected for container {{ $labels.name }}"
+      description: "Memory usage is above 512MB for more than 5 minutes. Current value: {{ $value }}"
