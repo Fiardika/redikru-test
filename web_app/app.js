@@ -2,7 +2,7 @@ const express = require('express');
 const prometheusMiddleware = require('express-prometheus-middleware');
 
 const app = express();
-const port = 3003;
+const port = process.env.PORT || 3003; // Use the PORT environment variable provided by Heroku
 
 // Use the prometheus middleware
 app.use(prometheusMiddleware({
@@ -16,5 +16,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://0.0.0.0:${port}`);
+  console.log(`Example app listening at http://localhost:${port}`);
 });
