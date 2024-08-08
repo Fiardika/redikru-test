@@ -23,21 +23,21 @@ jobs:
 
       - name: Install dependencies
         working-directory: ./web_app
-        run: npm install
+        run: sudo npm install
 
       - name: Run lint
         working-directory: ./web_app
-        run: npm run lint
+        run: sudo npm run lint
         env:
           CI: true
 
       - name: Run tests
         working-directory: ./web_app
-        run: npm test
+        run: sudo npm test
 
       - name: Build
         working-directory: ./web_app
-        run: npm run build
+        run: sudo npm run build
 
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.13.15
