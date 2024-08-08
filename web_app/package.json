@@ -5,7 +5,7 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "test": "mocha test/*.test.js",
+    "test": "mocha --require esm",
     "start": "node app.js",
     "lint": "eslint ."
   },
@@ -23,6 +23,7 @@
     "eslint": "^9.8.0",
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-vue": "^9.27.0",
+    "esm": "^3.2.25",
     "globals": "^15.9.0",
     "mocha": "^10.7.0",
     "supertest": "^7.0.0"
